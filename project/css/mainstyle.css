@@ -4,7 +4,7 @@ font-family: "MV Boli";
 text-align: center;
 font-size: 600%;
 padding: 25px;
-background-image: url("../images/cloud2.jpg");
+background-image: url("../images/cloud1.jpg");
 margin: 0;
 }
 #kt
@@ -55,19 +55,11 @@ background-color: #fff;
 }
 #content
 {
-//padding-top: 240px;
+padding-top: 240px;
 }
 #innercont
 {
 background-color: #fff;
 width: 80%;
-height: 650px;
-}
-#test
-{
-width: 100%;
-}
-#test td
-{
-font-size: 250%;
+height: 1000px;
 }
