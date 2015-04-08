@@ -1,0 +1,40 @@
+html, body {
+	height: 100%; 
+}
+
+.mycont {
+	margin-bottom: -300px;
+}
+.navbar-default{
+	background: url('../images/cloud3.jpg');
+}
+	
+.navbar .nav > li > a{
+	color: black;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.newfont{
+	font-family: 'Lobster', Georgia, Times, serif !important;
+	color: black !important;
+	font-size: 3.5em !important;
+	font-weight: bold !important;
+}
+#footer {
+	background: url('../images/cloud3.jpg');
+	width: 100%;
+}
+.myfooter {
+  padding: 40px 0;
+  color: #000000;
+  font-weight: bold;
+  font-size: 1.2em !important;
+  text-align: center !important;
+  background: url('../images/cloud3.jpg'); 
+  border-top: 1px solid #e5e5e5;
+  position: relative;
+}
+.myfooter p:last-child {
+  margin-bottom: 0;
+}
