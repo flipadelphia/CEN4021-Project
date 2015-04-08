@@ -1,0 +1,18 @@
+.navbar-default{
+	background: url('../images/cloud3.jpg');
+}
+	
+.navbar .nav > li > a{
+	color: black;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.newfont{
+	font-family: 'Lobster', Georgia, Times, serif;
+	color: black !important;
+	font-size: 3.5em !important;
+	font-weight: bold !important;
+}
+
+
