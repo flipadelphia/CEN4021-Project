@@ -36,3 +36,6 @@ html, body {
 .myfooter p:last-child {
   margin-bottom: 0;
 }
+p.answer{
+	color: blue !important;
+}

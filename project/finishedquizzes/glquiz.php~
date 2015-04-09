@@ -206,18 +206,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			$words = array();
 			$furigana = array();
 			$english = array();
-			?> 
-	<div class="table-responsive">
-	  <table class="table table-striped">
-	    <thead>
-	      <tr>
-	        <th> Kanji </th>
-	        <th> Furigana </th>
-		<th> English </th>
-	      </tr>
-	    </thead>
-	    <tbody>
-<?php
+	echo   "<div class='table-responsive'>";
+	echo  "<table class='table table-striped'>";
+	echo    "<thead>";
+	echo     " <tr>";
+	echo       " <th> Kanji </th>";
+	echo        "<th> Furigana </th>";
+	echo	   "<th> English </th>";
+	echo      "</tr>";
+	echo    "</thead>";
+	echo    "<tbody>";
 			while(($rows = mysqli_fetch_array($result)) && ($count<$num_rows)) {
 				if($count == $rands2[$arrayindex]) {
 					array_push($words,$rows[1]);
@@ -235,57 +233,95 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 					echo "<tr>";
 					echo "<th> $words[0] </th>";
 					?> <th onclick="this.innerHTML='<?php echo $furigana[0]?>'" > show furigana </th> <?php
-					?> <th> <form class="form-inline" name="answ1" > 
-						<input type="text" class=form-control" name="answer1" placeholder="English">
-			 			<input type="submit" onclick="val_answer(<?php echo $english[0]?>, this.form)" class="btn btn-sm btn-primary">
+					?> <th> <form class="form" name="answ1" role="form" method="POST" > 
+						<input type="text" class=form-control" name="answer1" id="answer1" value="" placeholder="English">
 					       	</form> </th>
-					  
-					<?php
+<?php
+					?> <th > <p class="text-primary" onclick="this.innerHTML='<?php echo $english[0]?>'"> Answer </p> </th> <?php
 					echo "</tr>";
 					
 					echo "<tr>";
 					echo "<th> $words[1] </th>";
 					?> <th onclick="this.innerHTML='<?php echo $furigana[1]?>'" > show furigana </th> <?php
-					?> <th> <form class="form-inline" name="answ2" onsubmit="this.inerrHTML=val_answer(<?php echo $english[1]?>)"> 
-						<input type="answer" class=form-control" id="answer2" placeholder="English">
+					?> <th> <form class="form" role="form" name="answ2" method="POST"> 
+						<input type="answer" class=form-control" id="answer2" value="" placeholder="English">
 					       	</form> </th> <?php
+					?> <th >  <p class="text-primary" onclick="this.innerHTML='<?php echo $english[1]?>'"> Answer </p> </th> <?php
 					echo "</tr>";
 					
 					echo "<tr>";
 					echo "<th> $words[2] </th>";
 					?> <th onclick="this.innerHTML='<?php echo $furigana[2]?>'" > show furigana </th> <?php
-					?> <th> <form class="form-inline" name="answ3" onsubmit="this.inerrHTML=val_answer(<?php echo $english[2]?>)"> 
+					?> <th> <form class="form" role="form" name="answ3" method="POST"> 
 						<input type="answer" class=form-control" id="answer3" placeholder="English">
 					       	</form> </th> <?php
+					?> <th>  <p class="text-primary" onclick="this.innerHTML='<?php echo $english[2]?>'"> Answer </p> </th> <?php
 					echo "</tr>";
 					
 					echo "<tr>";
 					echo "<th> $words[3] </th>";
 					?> <th onclick="this.innerHTML='<?php echo $furigana[3]?>'" > show furigana </th> <?php
-					?> <th> <form class="form-inline" name="answ4" onsubmit="this.inerrHTML=val_answer(<?php echo $english[3]?>)"> 
+					?> <th> <form class="form" role="form" name="answ4" method="POST"> 
 						<input type="answer" class=form-control" id="answer4" placeholder="English">
 					       	</form> </th> <?php
+					?> <th>  <p class="text-primary" onclick="this.innerHTML='<?php echo $english[3]?>'"> Answer </p> </th> <?php
 					echo "</tr>";
 					
 					echo "<tr>";
 					echo "<th> $words[4] </th>";
 					?> <th onclick="this.innerHTML='<?php echo $furigana[4]?>'" > show furigana </th> <?php
-					?> <th> <form class="form-inline" name="answ5" onsubmit="this.inerrHTML=val_answer(<?php echo $english[4]?>)"> 
+					?> <th> <form class="form" role="form" name="answ5" method="POST"> 
 						<input type="answer" class=form-control" id="answer5" placeholder="English">
 					       	</form> </th> <?php
+					?> <th>  <p class="text-primary" onclick="this.innerHTML='<?php echo $english[4]?>'"> Answer </p> </th> <?php
 					echo "</tr>";
 					
 					echo "<tr>";
-					?> <th> <form class="form-inline"> <input type="answer" class=form-control" id="answer<?php echo $questcount?>" placeholder="Kanji"> </form> </th> <?php
-					?> <th onclick="this.innerHTML='<?php echo $rows[3]?>'" > show furigana </th> <?php
-					echo "<th> $rows[5] </th>";
+					?> <th> <form class="form" role="form" name="answ6" method="POST"> 
+						<input type="answer" class=form-control" id="answer6" placeholder="Kanji"> 
+						</form> </th> <?php
+					?> <th> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[5]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[5]?>'" > show furigana </th> <?php
+					echo "<th> $english[5] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ7" method="POST"> 
+						<input type="answer" class=form-control" id="answer7" placeholder="Kanji"> 
+						</form> </th> <?php
+					?> <th>  <p class="text-primary" onclick="this.innerHTML='<?php echo $words[6]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[6]?>'" > show furigana </th> <?php
+					echo "<th> $english[6] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ8" method="POST"> 
+						<input type="answer" class=form-control" id="answer8" placeholder="Kanji"> 
+						</form> </th> <?php
+					?> <th> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[7]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[7]?>'" > show furigana </th> <?php
+					echo "<th> $english[7] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ9" method="POST"> 
+						<input type="answer" class=form-control" id="answer6" placeholder="Kanji"> 
+						</form> </th> <?php
+					?> <th>  <p class="text-primary" onclick="this.innerHTML='<?php echo $words[8]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[8]?>'" > show furigana </th> <?php
+					echo "<th> $english[8] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ10" method="POST"> 
+						<input type="answer" class=form-control" id="answer9" placeholder="Kanji"> 
+						</form> </th> <?php
+					?> <th> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[9]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[9]?>'" > show furigana </th> <?php
+					echo "<th> $english[9] </th>";
 					echo "</tr>";
 		}
 	}
 }
+	    echo "</tbody>";
+	  echo "</table>";
 ?>
-	    </tbody>
-	  </table>
 	</div>
   </div>
  </div>
@@ -293,22 +329,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="footer myfooter navbar-fixed-bottom">
 <p> Kanji Tools by Flipadelphia </p>
 <div>
-<script>
-function val_answer(x, form) {
-	if(form=NULL | form='') {
-		document.getElementById("answer1").style.color = "red";
-		form.answer1.value = x;
-	}
-	if(x.toLowerCase().search(form.toLowerCase()) = -1) {
-		document.getElementById("answer1").style.color = "red";
-		form.answer1.value = x;
-	}
-	else {
-		document.getElementById("answer1").style.color = "green";
-		form.answer1.value = form;
-	}
-}
-</script>
 </body>
 </html>
 

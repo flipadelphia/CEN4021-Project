@@ -2,9 +2,7 @@ html, body {
 	height: 100%; 
 }
 
-.mycont {
-	margin-bottom: -300px;
-}
+
 .navbar-default{
 	background: url('../images/cloud3.jpg');
 }
@@ -37,4 +35,7 @@ html, body {
 }
 .myfooter p:last-child {
   margin-bottom: 0;
+}
+p.answer{
+	color: blue;
 }
