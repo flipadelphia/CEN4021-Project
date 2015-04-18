@@ -39,7 +39,7 @@
       <a class="dropdown-toggle" data-toggle="dropdown"> Study Area <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
             <li class="active"><a href="quiz.php">Take a Quiz</a></li>
-            <li><a href="jtoe.php">Make some Flashcards</a></li>
+            <li><a href="flashcard.php">Make some Flashcards</a></li>
 	  </ul>
       </li>
       </ul>
