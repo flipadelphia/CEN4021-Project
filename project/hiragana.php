@@ -18,6 +18,7 @@
 ?>
 
 <head>
+<meta charset="utf-8">
 <title>Kanji Tools</title>
 <link href="http://fonts.googleapis.com/css?family=Lobster" rel"stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -31,31 +32,31 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand newfont"> Kanji Tools</a>
+      <a class="navbar-brand newfont"><font face="mv boli">Kanji Tools</font></a>
     </div>
       <ul class="nav navbar-nav pull-right">
-      <li><a href="main.html" target="main">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Kanji Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="meaning.php" target="main">Search by Meaning</a></li>
-            <li class="active"><a href="hiragana.php" target="main">Search by Hiragana</a></li>
-            <li><a href="radical.html" target="main">Search by Radical</a></li>
-            <li><a href="stroke.php" target="main">Search by Stroke Count</a></li>
+            <li><a href="meaning.php">Search by Meaning</a></li>
+            <li class="active"><a href="hiragana.php">Search by Hiragana</a></li>
+            <li><a href="radical.html">Search by Radical</a></li>
+            <li><a href="stroke.php">Search by Stroke Count</a></li>
 	  </ul>
       </li> 
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Word Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="etoj.php" target="main">Search by English</a></li>
-            <li><a href="jtoe.php" target="main">Search by Japanese</a></li>
+            <li><a href="etoj.php">Search by English</a></li>
+            <li><a href="jtoe.php">Search by Japanese</a></li>
 	  </ul>
       </li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Study Area <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="quiz.php" target="main">Take a Quiz</a></li>
-            <li><a href="jtoe.php" target="main">Make some Flashcards</a></li>
+            <li><a href="quiz.php">Take a Quiz</a></li>
+            <li><a href="flashcard.php">Make some Flashcards</a></li>
 	  </ul>
       </li>
       </ul>
@@ -108,7 +109,11 @@
    {
       $result=mysqli_query($con,"SELECT kanji, grade_level, sc, readings, meanings
                                  FROM kanjiinfo
-                                 WHERE readings LIKE '%$keyword%'");
+                                 WHERE readings LIKE '%$keyword%'
+				 order by case when readings LIKE '$keyword' then 1
+					       when readings LIKE '$keyword,%' then 2
+					       when readings LIKE '% $keyword,%' then 3
+					       when readings LIKE '%$keyword%' then 4 end");
       if($result)
       {
          $count=mysqli_num_rows($result);
@@ -152,7 +157,6 @@
 <!--****************************************************************************************************************************************************************-->
 </div>
 </center>
-</div>
 </div>
 </body>
 </html>
