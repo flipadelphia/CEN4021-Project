@@ -17,7 +17,7 @@
  <a class="navbar-brand newfont"><font face="mv boli">Kanji Tools</font></a>
     </div>
       <ul class="nav navbar-nav pull-right">
-      <li><a href="main.html" target="main">Home</a></li>
+      <li><a href="index.html" target="main">Home</a></li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" > Kanji Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
@@ -64,8 +64,8 @@
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a> Kanji Tools </a> </li>
-    <li> <a> Flipadelphia </a> </li>
+    <li> <a href="index.html"> Kanji Tools </a> </li>
+    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">
