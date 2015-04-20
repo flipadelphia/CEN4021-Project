@@ -108,13 +108,20 @@
  <div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
    <ul class="nav nav-sidebar">
+    <li> Flash Card Methods </li>
     <li> <a href=glcards.php> Grade Level Cards </a> </li>
     <li> <a href=randcards.php> Random Cards </a> </li>
     <li> <a href=bykanjicards.php> Specific Kanji </a> </li>
    </ul>
    <ul class="nav nav-sidebar">
+    <li> External Links </li>
     <li> <a href="http://www.kanjialive.com"> Kanji Alive </a> </li>
     <li> <a href="http://www.edrdg.org/jmdict/j_jmdict.html"> JMDict </a> </li>
+   </ul>
+   <ul class="nav nav-sidebar">
+    <li> <a> </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">
@@ -266,9 +273,6 @@ swapImage();
 	</div>
   </div>
  </div>
-</div>
-<div class="footer myfooter navbar-fixed-bottom">
-<p> Kanji Tools by Flipadelphia </p>
 </div>
 </div>
 </body>

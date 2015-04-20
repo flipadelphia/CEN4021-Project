@@ -41,7 +41,7 @@
 	  <ul class="dropdown-menu" role="menu">
             <li><a href="meaning.php">Search by Meaning</a></li>
             <li><a href="hiragana.php">Search by Hiragana</a></li>
-            <li><a href="radical.html">Search by Radical</a></li>
+            <li><a href="byradical.php">Search by Radical</a></li>
             <li><a href="stroke.php">Search by Stroke Count</a></li>
 	  </ul>
       </li> 
@@ -63,15 +63,37 @@
     </div>
   </div>
 </nav>
-
+<div class="container-fluid">
+ <div class="row">
+  <div class="col-sm-3 col-md-2 sidebar">
+   <ul class="nav nav-sidebar">
+    <li> Word Searching </li>
+    <li> <a href=etoj.php> Search by English </a> </li>
+    <li> <a href=jtoe.php> Search by Japanese </a> </li>
+   </ul>
+   <ul class="nav nav-sidebar">
+    <br>
+    <li> External Links </li>
+    <li> <a href="http://www.kanjialive.com"> Kanji Alive </a> </li>
+    <li> <a href="http://www.edrdg.org/jmdict/j_jmdict.html"> JMDict </a> </li>
+   </ul>
+   <ul class="nav nav-sidebar">
+    <li> <a> </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
+   </ul>
+  </div>
+  <div class="col-sm-9 ">
 <div id="content">
 <center>
 <div id="innercont">
+<h1> Search for Words by English </h1>
+<h3> If you know the English of the word you're searching for then type it in and search for it! </h3>
 <!--****************************************************************************************************************************************************************-->
 <form action="etoj.php" method="post">
 <table width="200" border="0">
 <tr>
-<td>English Word</td>
+<td><h3>English Word </h3></td>
 <td>&nbsp;</td>
 <td>
 <input name="keyword" type="text" id="keyword" value="<?php echo $keyword;?>">
@@ -92,7 +114,7 @@
       if($result)
       {
          $count=mysqli_num_rows($result);
-         echo '<strong>'.$count.' kanji found'.'</strong><br/>';
+         echo '<strong>'.$count.' Words found'.'</strong><br/>';
 ?>
 <br/><br/>
 <table id="test" cellpadding="3">
@@ -100,8 +122,8 @@
 
 <td align="center">Kanji Word</td>
 <td align="center">Reading</td>
-<td align="center">Meanings</td>
-<td align="center">Other Meanings</td>
+<td align="center">Meaning</td>
+<td align="center">Meaning</td>
 </tr>
 
 <?php
@@ -131,8 +153,6 @@
 </div>
 </center>
 </div>
-<div class="footer myfooter navbar-fixed-bottom">
-<p> Kanji Tools by Flipadelphia </p>
 </div>
 </body>
 </html>

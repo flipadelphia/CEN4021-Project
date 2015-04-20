@@ -1,0 +1,35 @@
+<html>
+<head>
+<link href="http://fonts.googleapis.com/css?family=Lobster" rel"stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mycss.css">
+<meta name="viewpoint" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"> </script>
+</head>
+<body>
+<div class="container">
+
+<FORM NAME="myform" ACTION="" METHOD="GET">
+Enter something in the box: <BR>
+<INPUT TYPE="text" NAME="inputbox" VALUE=""><P>
+<INPUT TYPE="button" NAME="button1" Value="Read" onClick="readText(this.form)">
+<INPUT TYPE="button" NAME="button2" Value="Write" onClick="writeText(this.form)">
+</FORM>
+</div>
+<script>
+	function change(form) {
+	form.answer.value = "lawls";
+}
+</script>
+<SCRIPT LANGUAGE="JavaScript">
+function readText (form) {
+    TestVar =form.inputbox.value;
+    alert ("You typed: " + TestVar);
+}
+function writeText (form) {
+    form.inputbox.value = "Have a nice day!"
+}
+</SCRIPT>
+</body>
+</html>

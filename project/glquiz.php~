@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--doctype html-->
 <html>
 <meta charset="utf8">
 <head><title>Kanji Tools</title>
@@ -8,112 +8,57 @@
 <meta name="viewpoint" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./js/bootstrap.min.js"> </script>
-<style>
-.card {
-  position: relative;
-  float: left;
-  padding-bottom: 25%;
-  width: 25%;
-  text-align: center;
-}
 
-.card__front,
-.card__back {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.card__front,
-.card__back {
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  -webkit-transition: -webkit-transform 0.3s;
-          transition: transform 0.3s;
-}
-
-.card__front {
-  background-color: #b5d8e8;
-}
-
-.card__back {
-  background-color: #d3d3d3;
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-.card__text {
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  height: 20px;
-//  color: #fff;
-  font-family: "Roboto Slab", serif;
-  line-height: 20px;
-}
-.card.effect__click.flipped .card__front {
-  -webkit-transform: rotateY(-180deg);
-          transform: rotateY(-180deg);
-}
-
-.card.effect__click.flipped .card__back {
-  -webkit-transform: rotateY(0);
-          transform: rotateY(0);
-}
-</style>
 </head>
 <body>
 
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <a class="navbar-brand newfont"><font face="mv boli">Kanji Tools</font></a>
+ <a class="navbar-brand newfont"><font face="mv boli">Kanji Tools</font></a>
     </div>
       <ul class="nav navbar-nav pull-right">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="main.html" target="main">Home</a></li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" > Kanji Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="meaning.php">Search by Meaning</a></li>
-            <li><a href="hiragana.php">Search by Hiragana</a></li>
-            <li><a href="radical.html">Search by Radical</a></li>
-            <li class="active"><a href="stroke.php">Search by Stroke Count</a></li>
+            <li><a href="meaning.php" target="main">Search by Meaning</a></li>
+            <li><a href="hiragana.php" target="main">Search by Hiragana</a></li>
+            <li><a href="byradical.php" target="main">Search by Radical</a></li>
+            <li><a href="stroke.php" target="main">Search by Stroke Count</a></li>
 	  </ul>
       </li> 
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Word Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="etoj.php">Search by English</a></li>
-            <li><a href="jtoe.php">Search by Japanese</a></li>
+            <li><a href="etoj.php" target="main">Search by English</a></li>
+            <li><a href="jtoe.php" target="main">Search by Japanese</a></li>
 	  </ul>
       </li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Study Area <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="quiz.php">Take a Quiz</a></li>
-            <li class="active"><a href="flashcard.php">Make some Flashcards</a></li>
+            <li class="active"><a href="quiz.php" target="main">Take a Quiz</a></li>
+            <li><a href="jtoe.php" target="main">Make some Flashcards</a></li>
 	  </ul>
       </li>
       </ul>
     </div>
   </div>
 </nav>
-<div id="content">
+
 <div class="container-fluid">
  <div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
    <ul class="nav nav-sidebar">
-    <li> Flash Card Methods </li>
-    <li> <a href=glcards.php> Grade Level Cards </a> </li>
-    <li> <a href=randcards.php> Random Cards </a> </li>
-    <li> <a href=bykanjicards.php> Specific Kanji </a> </li>
+    <li> Quiz Time! </li>
+    <li> <a href=glquiz.php> Grade Level Quiz </a> </li>
+    <li> <a href=randquiz.php> Random Words </a> </li>
+    <li> <a href=bykanjiquiz.php> Specific Kanji </a> </li>
+    <li> <a href=indikanjiquiz.php> Random Kanji </a> </li>
    </ul>
    <ul class="nav nav-sidebar">
+    <br>
     <li> External Links </li>
     <li> <a href="http://www.kanjialive.com"> Kanji Alive </a> </li>
     <li> <a href="http://www.edrdg.org/jmdict/j_jmdict.html"> JMDict </a> </li>
@@ -125,9 +70,9 @@
    </ul>
   </div>
   <div class="col-sm-9 ">
-    <h1> Grade Level Cards </h1>
-      <p> This option lets you pick a grade level of kanji you wish to learn based on 1st - 12th grade levels. </p>
-      <form action="glcards.php" method="post">
+    <h1> Grade Level Quiz </h1>
+      <p> This quiz type lets you pick a grade level of kanji you wish to learn based on 1st - 12th grade levels. </p>
+      <form action="glquiz.php" method="post">
       Grade Level: <select name="gradelevel">
      <option value="1"> 1st </option>
      <option value="2"> 2nd </option>
@@ -270,7 +215,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			$words = array();
 			$furigana = array();
 			$english = array();
-
+	echo   "<div class='table-responsive'>";
+	echo  "<table class='table table-striped'>";
+	echo    "<thead>";
+	echo     " <tr>";
+	echo       " <th> Kanji </th>";
+	echo        "<th> Furigana </th>";
+	echo	   "<th> English </th>";
+	echo      "</tr>";
+	echo    "</thead>";
+	echo    "<tbody>";
 			while(($rows = mysqli_fetch_array($result)) && ($count<$num_rows)) {
 				if($count == $rands2[$arrayindex]) {
 					array_push($words,$rows[1]);
@@ -285,103 +239,101 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 				}
 				$count++;
 			}
-$words = implode(",", $words);
-$english = implode(",", $english);
-?>
-<!-- *************************************************************************************** -->
-<script type="text/javascript"> 
-var i = 0;
-var eng = new Array();   
-eng = '<?php echo $english; ?>'.split(",");  
-var k = eng.length-1;    
-var word = new Array(); 
-word = '<?php echo $words; ?>'.split(",");
-
-function next(){
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
-if(i < k ) { i++;}  
-else  { i = 0; }
-}
-
-function prev(){
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
-if(i >0 ) { i--;}  
-else  { i = k; } 
-}
-
-function swapImage(){ 
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
-if(i < k ) { i++;}  
-else  { i = 0; } 
-//setTimeout("swapImage()",5000); 
-} 
-function addLoadEvent(func) { 
-var oldonload = window.onload; 
-if (typeof window.onload != 'function') { 
-window.onload = func; 
-} else  { 
-window.onload = function() { 
-if (oldonload) { 
-oldonload(); 
-} 
-func(); 
-} 
-} 
-} 
-addLoadEvent(function() { 
-swapImage(); 
-});  
-</script> 
-
-          <div class="card effect__click">
-            <div class="card__front">
-              <span id="front" name="card_fnt" class="card__text"></span>
-            </div>
-            <div class="card__back">
-              <span id="back" name="card_bck" class="card__text"></span>
-            </div>
-        </div><!-- /card -->
-
-<img onclick="prev()" height="25" width="25"src="images/prev.jpg"/> 
-<img onclick="next()" height="25" width="25" src="images/next.jpg"/> 
-
-<script type="text/javascript">
-(function() {
-  var cards = document.querySelectorAll(".card.effect__click");
-  for ( var i  = 0, len = cards.length; i < len; i++ ) {
-    var card = cards[i];
-    clickListener( card );
-  }
-
-  function clickListener(card) {
-    card.addEventListener( "click", function() {
-      var c = this.classList;
-      c.contains("flipped") === true ? c.remove("flipped") : c.add("flipped");
-    });
-  }
-})();
-</script>
-<!-- *************************************************************************************** -->
-<?php
+					echo "<tr>";
+					echo "<th> $words[0] </th>";
+					?> <th onclick="this.innerHTML='<?php echo $furigana[0]?>'" > show furigana </th> <?php
+					?> <th> <form class="form" name="answ1" role="form" method="POST" > 
+						<input type="text" class=form-control" name="answer1" id="answer1" value="" placeholder="English">
+					       	</form><?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $english[0]?>'"> Answer </p> </th> <?php
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<th> $words[1] </th>";
+					?> <th onclick="this.innerHTML='<?php echo $furigana[1]?>'" > show furigana </th> <?php
+					?> <th> <form class="form" role="form" name="answ2" method="POST"> 
+						<input type="answer" class=form-control" id="answer2" value="" placeholder="English">
+					       	</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $english[1]?>'"> Answer </p> </th> <?php
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<th> $words[2] </th>";
+					?> <th onclick="this.innerHTML='<?php echo $furigana[2]?>'" > show furigana </th> <?php
+					?> <th> <form class="form" role="form" name="answ3" method="POST"> 
+						<input type="answer" class=form-control" id="answer3" placeholder="English">
+					       	</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $english[2]?>'"> Answer </p> </th> <?php
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<th> $words[3] </th>";
+					?> <th onclick="this.innerHTML='<?php echo $furigana[3]?>'" > show furigana </th> <?php
+					?> <th> <form class="form" role="form" name="answ4" method="POST"> 
+						<input type="answer" class=form-control" id="answer4" placeholder="English">
+					       	</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $english[3]?>'"> Answer </p> </th> <?php
+					echo "</tr>";
+					
+					echo "<tr>";
+					echo "<th> $words[4] </th>";
+					?> <th onclick="this.innerHTML='<?php echo $furigana[4]?>'" > show furigana </th> <?php
+					?> <th> <form class="form" role="form" name="answ5" method="POST"> 
+						<input type="answer" class=form-control" id="answer5" placeholder="English">
+					       	</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $english[4]?>'"> Answer </p> </th> <?php
+					echo "</tr>";
+					
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ6" method="POST"> 
+						<input type="answer" class=form-control" id="answer6" placeholder="Kanji"> 
+						</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[5]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[5]?>'" > show furigana </th> <?php
+					echo "<th> $english[5] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ7" method="POST"> 
+						<input type="answer" class=form-control" id="answer7" placeholder="Kanji"> 
+						</form><?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[6]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[6]?>'" > show furigana </th> <?php
+					echo "<th> $english[6] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ8" method="POST"> 
+						<input type="answer" class=form-control" id="answer8" placeholder="Kanji"> 
+						</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[7]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[7]?>'" > show furigana </th> <?php
+					echo "<th> $english[7] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ9" method="POST"> 
+						<input type="answer" class=form-control" id="answer6" placeholder="Kanji"> 
+						</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[8]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[8]?>'" > show furigana </th> <?php
+					echo "<th> $english[8] </th>";
+					echo "</tr>";
+					echo "<tr>";
+					?> <th> <form class="form" role="form" name="answ10" method="POST"> 
+						<input type="answer" class=form-control" id="answer9" placeholder="Kanji"> 
+						</form> <?php
+					?> <p class="text-primary" onclick="this.innerHTML='<?php echo $words[9]?>'"> Answer </p> </th> <?php
+					?> <th onclick="this.innerHTML='<?php echo $furigana[9]?>'" > show furigana </th> <?php
+					echo "<th> $english[9] </th>";
+					echo "</tr>";
 		}
 	}
 }
+	    echo "</tbody>";
+	  echo "</table>";
 ?>
-
 	</div>
   </div>
  </div>
 </div>
-</div>
-
 </body>
 </html>
+

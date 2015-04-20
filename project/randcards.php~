@@ -116,11 +116,6 @@
     <li> <a href="http://www.kanjialive.com"> Kanji Alive </a> </li>
     <li> <a href="http://www.edrdg.org/jmdict/j_jmdict.html"> JMDict </a> </li>
    </ul>
-   <ul class="nav nav-sidebar">
-    <li> <a> </a> </li>
-    <li> <a> Kanji Tools </a> </li>
-    <li> <a> Flipadelphia </a> </li>
-   </ul>
   </div>
   <div class="col-sm-9 ">
     <h2> Random Flashcards! </h2>

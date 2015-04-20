@@ -19,7 +19,7 @@ if ($temp) {
 	while ($row = mysqli_fetch_array($temp)) {
 		echo "<tr class='info'>";
 		echo "<td align='center'> $row[1] </td> ";
-		echo "<td align='center'> $row[3] </td> ";
+		echo "<td align='center'> $row[2] </td> ";
 		echo "<td align='center'> $row[4] </td> ";
 		echo "<td align='center'> $row[5] </td> ";
 		echo "<td align='center'> $row[6] </td> ";

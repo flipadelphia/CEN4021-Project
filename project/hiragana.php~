@@ -18,7 +18,6 @@
 ?>
 
 <head>
-<meta charset="utf-8">
 <title>Kanji Tools</title>
 <link href="http://fonts.googleapis.com/css?family=Lobster" rel"stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -39,8 +38,8 @@
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Kanji Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li class="active"><a href="meaning.php" target="main">Search by Meaning</a></li>
-            <li><a href="hiragana.php" target="main">Search by Hiragana</a></li>
+            <li><a href="meaning.php" target="main">Search by Meaning</a></li>
+            <li class="active"><a href="hiragana.php" target="main">Search by Hiragana</a></li>
             <li><a href="byradical.php" target="main">Search by Radical</a></li>
             <li><a href="stroke.php" target="main">Search by Stroke Count</a></li>
 	  </ul>
@@ -56,7 +55,7 @@
       <a class="dropdown-toggle" data-toggle="dropdown"> Study Area <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
             <li><a href="quiz.php" target="main">Take a Quiz</a></li>
-            <li><a href="flashcard.php" target="main">Make some Flashcards</a></li>
+            <li><a href="jtoe.php" target="main">Make some Flashcards</a></li>
 	  </ul>
       </li>
       </ul>
@@ -87,17 +86,16 @@
    </ul>
   </div>
   <div class="col-sm-9 ">
-
 <div id="content">
 <center>
 <div id="innercont">
-<h1> Search for Kanji by the Meaning </h1>
-<h3> If you know the meaning of a Kanji, then type it in and find it! </h3>
+<h1> Search for Kanji by the Reading </h1>
+<h3> If you know how it is read in Japanese type in the reading for the Kanji </h3>
 <!--****************************************************************************************************************************************************************-->
-<form action="meaning.php" method="post">
+<form action="hiragana.php" method="post">
 <table width="200" border="0">
 <tr>
-<td><h3>Meaning</h3></td>
+<td><h3>Reading</h3></td>
 <td>&nbsp;</td>
 <td>
 <input name="keyword" type="text" id="keyword" value="<?php echo $keyword;?>">
@@ -110,7 +108,7 @@
    {
       $result=mysqli_query($con,"SELECT kanji, grade_level, sc, readings, meanings
                                  FROM kanjiinfo
-                                 WHERE meanings LIKE '%$keyword%'");
+                                 WHERE readings LIKE '%$keyword%'");
       if($result)
       {
          $count=mysqli_num_rows($result);

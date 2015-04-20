@@ -1,16 +1,72 @@
-<!--doctype html-->
 <html>
 <meta charset="utf8">
-<head><title>Kanji Tools</title>
+<head>
+<title>Kanji Tools</title>
 <link href="http://fonts.googleapis.com/css?family=Lobster" rel"stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/mycss.css">
 <meta name="viewpoint" content="width=device-width, initial-scale=1">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="./js/bootstrap.min.js"> </script>
-</head>
-<body>
+<style>
+p{
+	font-size: 250px;
+}
+</style>
+<script>
+$(document).ready(function() {
+	$('#myquiz').on('click','button',function() {
+		var x = document.getElementById("myanswer").value;
+		var y = document.getElementById("next").value;
+		var z = document.getElementById("myanswer").name;
+		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
+			$('#old').html(data);	
+		});
+		$.post("newquest.php", function(data) {
+			$('#question').html(data);
+		});
+	});
+});
+$(document).ready(function(){
 
+	$("form").submit(function(){
+		var x = document.getElementById("myanswer").value;
+		var y = document.getElementById("next").value;
+		var z = document.getElementById("myanswer").name;
+		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
+			$('#old').html(data);	
+		});
+		$.post("newquest.php", function(data) {
+			$('#question').html(data);
+		});
+		return false;
+	});
+});
+</script>
+<head>
+<body>
+<?php
+
+	include "database_connector.php";
+	$temp = mysqli_query($con,"SELECT * FROM kanjiinfo WHERE grade_level > 0");
+	if($temp) {
+		$kanji = array();
+		$sc = array();
+		$meanings = array();
+		$readings = array();
+		while($row = mysqli_fetch_array($temp)){
+			array_push($kanji, $row[1]);
+			array_push($sc, $row[4]);
+			array_push($meanings, $row[6]);
+			array_push($readings, $row[5]);
+		}	
+	//	echo count($kanji);
+	//	echo count($sc);
+	}
+	$num = rand(0, (count($kanji)-1));
+//	echo $num;
+	$num2 = rand(1, 3);
+?>
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -52,12 +108,12 @@
    <ul class="nav nav-sidebar">
     <li> Quiz Time! </li>
     <li> <a href=glquiz.php> Grade Level Quiz </a> </li>
-    <li> <a href=randquiz.php> Random Words Quiz </a> </li>
+    <li class="active"> <a href=randquiz.php> Random Words </a> </li>
     <li> <a href=bykanjiquiz.php> Specific Kanji </a> </li>
     <li> <a href=indikanjiquiz.php> Random Kanji </a> </li>
    </ul>
    <ul class="nav nav-sidebar">
-     <br>
+    <br>
     <li> External Links </li>
     <li> <a href="http://www.kanjialive.com"> Kanji Alive </a> </li>
     <li> <a href="http://www.edrdg.org/jmdict/j_jmdict.html"> JMDict </a> </li>
@@ -69,18 +125,33 @@
    </ul>
   </div>
   <div class="col-sm-9 ">
-    <h1> It's Quiz Time! </h1>
-	<p> This section is devoted to allowing you to take quizzes in multiple formats </p>
-      <h2> Grade Level Quiz </h2>
-	<p> This quiz type lets you pick a grade level of kanji you wish to learn based on 1st - 12th grade levels. </p>
-      <h2> Random Words Quiz </h2>
-	<p> This quiz type lets you take a quiz of randomly chosen words </p>
-      <h2> Spcific Kanji </h2>
-	<p> This quiz type lets you chose the kanji you would like to have a quiz on </p>
-      <h2> Random Kanji Quiz </h2>
-	<p> This quiz type prompts the user with random kanji asking questions about each </p>
+  <h1> You will be asked random questions about kanji.  Do your best! </h1>
+	<div id="old">
+	</div>
+	<div id="question" class="col-sm-4">
+	<form role="form" class="form-inline">
+	  <div id='myquiz' class="form-group">
+	  <p >  <?php echo $kanji[$num]?> </p>
+	<?php 
+		if($num2 == 1) {
+		echo "<label> How many strokes? </label>";
+	        echo "<input type='text' id='myanswer' name='1' class='form-control'> </input>";
+		}
+		if($num2 == 2) {
+		echo "<label> What is the meaning? </label>";
+	        echo "<input type='text' id='myanswer' name='2' class='form-control'> </input>";
+		}
+		if($num2 == 3) {
+		echo "<label> What is a reading? </label>";
+	        echo "<input type='text' id='myanswer' name='3' class='form-control'> </input>";
+		}
+		?>
+			<button id="next" type='button' class='btn btn-default' value="<?php echo $num;?>">Next</button>
+	  </div>
+	</form>
+	</div>
+   </div>
   </div>
- </div>
 </div>
 </body>
 </html>
