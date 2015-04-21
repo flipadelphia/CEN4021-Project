@@ -55,6 +55,7 @@
     <li> <a href=randquiz.php> Random Words Quiz </a> </li>
     <li> <a href=bykanjiquiz.php> Specific Kanji </a> </li>
     <li> <a href=indikanjiquiz.php> Random Kanji </a> </li>
+    <li> <a href=glindikanjiquiz.php> Kanji By Grade Level </a> </li>
    </ul>
    <ul class="nav nav-sidebar">
      <br>
@@ -64,8 +65,8 @@
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a href="index.html"> Kanji Tools </a> </li>
-    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">

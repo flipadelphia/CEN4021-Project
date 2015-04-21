@@ -17,6 +17,9 @@ p{
 $(document).ready(function() {
 	$('#myquiz').on('click','button',function() {
 		var x = document.getElementById("myanswer").value;
+		if(x === "") {
+			return false;
+		}
 		var y = document.getElementById("next").value;
 		var z = document.getElementById("myanswer").name;
 		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
@@ -31,6 +34,9 @@ $(document).ready(function(){
 
 	$("form").submit(function(){
 		var x = document.getElementById("myanswer").value;
+		if(x === "") {
+			return false;
+		}
 		var y = document.getElementById("next").value;
 		var z = document.getElementById("myanswer").name;
 		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
@@ -111,6 +117,7 @@ $(document).ready(function(){
     <li class="active"> <a href=randquiz.php> Random Words </a> </li>
     <li> <a href=bykanjiquiz.php> Specific Kanji </a> </li>
     <li> <a href=indikanjiquiz.php> Random Kanji </a> </li>
+    <li> <a href=glindikanjiquiz.php> Kanji By Grade Level </a> </li>
    </ul>
    <ul class="nav nav-sidebar">
     <br>
@@ -120,8 +127,8 @@ $(document).ready(function(){
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a href="index.html"> Kanji Tools </a> </li>
-    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">

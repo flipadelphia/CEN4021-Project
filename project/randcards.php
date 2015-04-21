@@ -79,8 +79,8 @@
 	  <ul class="dropdown-menu" role="menu">
             <li><a href="meaning.php">Search by Meaning</a></li>
             <li><a href="hiragana.php">Search by Hiragana</a></li>
-            <li><a href="radical.html">Search by Radical</a></li>
-            <li class="active"><a href="stroke.php">Search by Stroke Count</a></li>
+            <li><a href="byradical.php">Search by Radical</a></li>
+            <li><a href="stroke.php">Search by Stroke Count</a></li>
 	  </ul>
       </li> 
       <li class="dropdown">
@@ -118,8 +118,8 @@
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a href="index.html"> Kanji Tools </a> </li>
-    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">

@@ -79,8 +79,8 @@
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a href="index.html"> Kanji Tools </a> </li>
-    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
+    <li> <a> Kanji Tools </a> </li>
+    <li> <a> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">
@@ -106,7 +106,7 @@
    {
       $result=mysqli_query($con,"SELECT kanji_word, word_reading, gloss, more_gloss
                                  FROM dictionary
-                                 WHERE (gloss LIKE '%$keyword%' OR more_gloss LIKE '%keyword%')
+                                 WHERE (gloss LIKE '%$keyword%' OR more_gloss LIKE '%$keyword%')
 				 order by case when (gloss LIKE '$keyword' OR more_gloss LIKE '$keyword') then 1
 					       when (gloss LIKE '$keyword,%' OR more_gloss LIKE '$keyword,%') then 2
 					       when (gloss LIKE '% $keyword,%' OR more_gloss LIKE '% $keyword,%') then 3

@@ -2,6 +2,9 @@
 $(document).ready(function() {
 	$('#myquiz').on('click','button',function() {
 		var x = document.getElementById("myanswer").value;
+		if(x === "") {
+			return false;
+		}
 		var y = document.getElementById("next").value;
 		var z = document.getElementById("myanswer").name;
 		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
@@ -16,6 +19,9 @@ $(document).ready(function(){
 
 	$("form").submit(function(){
 		var x = document.getElementById("myanswer").value;
+		if(x === "") {
+			return false;
+		}
 		var y = document.getElementById("next").value;
 		var z = document.getElementById("myanswer").name;
 		$.post("grade_me.php", {k_id: y, ans: x, que: z}, function(data){
