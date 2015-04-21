@@ -28,28 +28,28 @@ $(document).ready(function (){
  <a class="navbar-brand newfont"><font face="mv boli">Kanji Tools</font></a>
     </div>
       <ul class="nav navbar-nav pull-right">
-      <li><a href="index.html" target="main">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown" > Kanji Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="meaning.php" target="main">Search by Meaning</a></li>
-            <li><a href="hiragana.php" target="main">Search by Hiragana</a></li>
-            <li class="active"><a href="byradical.php" target="main">Search by Radical</a></li>
-            <li><a href="stroke.php" target="main">Search by Stroke Count</a></li>
+            <li><a href="meaning.php">Search by Meaning</a></li>
+            <li><a href="hiragana.php">Search by Hiragana</a></li>
+            <li class="active"><a href="byradical.php">Search by Radical</a></li>
+            <li><a href="stroke.php">Search by Stroke Count</a></li>
 	  </ul>
       </li> 
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Word Search <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
-            <li><a href="etoj.php" target="main">Search by English</a></li>
-            <li><a href="jtoe.php" target="main">Search by Japanese</a></li>
+            <li><a href="etoj.php">Search by English</a></li>
+            <li><a href="jtoe.php">Search by Japanese</a></li>
 	  </ul>
       </li>
       <li class="dropdown">
       <a class="dropdown-toggle" data-toggle="dropdown"> Study Area <span class="caret"></span></a>
 	  <ul class="dropdown-menu" role="menu">
             <li><a href="quiz.php" target="main">Take a Quiz</a></li>
-            <li><a href="flashcard.php" target="main">Make some Flashcards</a></li>
+            <li><a href="flashcard.php">Make some Flashcards</a></li>
 	  </ul>
       </li>
       </ul>

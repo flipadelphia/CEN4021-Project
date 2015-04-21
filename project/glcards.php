@@ -13,6 +13,7 @@
   position: relative;
   float: left;
   padding-bottom: 25%;
+  left: 165px;
   width: 25%;
   text-align: center;
 }
@@ -287,6 +288,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			}
 $words = implode(",", $words);
 $english = implode(",", $english);
+$furigana = implode(",", $furigana);
 ?>
 <!-- *************************************************************************************** -->
 <script type="text/javascript"> 
@@ -296,33 +298,40 @@ eng = '<?php echo $english; ?>'.split(",");
 var k = eng.length-1;    
 var word = new Array(); 
 word = '<?php echo $words; ?>'.split(",");
+var furi = new Array(); 
+furi = '<?php echo $furigana; ?>'.split(",");
 
 function next(){
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
+var frnt = document.getElementById("front"); 
+frnt.innerHTML=word[i]; 
+var ebck = document.getElementById("eback"); 
+ebck.innerHTML= eng[i]; 
+var rbck = document.getElementById("rback"); 
+rbck.innerHTML= furi[i]; 
 if(i < k ) { i++;}  
 else  { i = 0; }
 }
 
 function prev(){
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
+var frnt = document.getElementById("front"); 
+frnt.innerHTML=word[i]; 
+var ebck = document.getElementById("eback"); 
+ebck.innerHTML= eng[i]; 
+var rbck = document.getElementById("rback"); 
+rbck.innerHTML= furi[i]; 
 if(i >0 ) { i--;}  
 else  { i = k; } 
 }
 
 function swapImage(){ 
-var el = document.getElementById("front"); 
-el.innerHTML=word[i]; 
-var img= document.getElementById("back"); 
-img.innerHTML= eng[i]; 
+var frnt = document.getElementById("front"); 
+frnt.innerHTML=word[i]; 
+var ebck = document.getElementById("eback"); 
+ebck.innerHTML= eng[i]; 
+var rbck = document.getElementById("rback"); 
+rbck.innerHTML= furi[i]; 
 if(i < k ) { i++;}  
-else  { i = 0; } 
-//setTimeout("swapImage()",5000); 
+else  { i = 0; }  
 } 
 function addLoadEvent(func) { 
 var oldonload = window.onload; 
@@ -340,19 +349,28 @@ func();
 addLoadEvent(function() { 
 swapImage(); 
 });  
-</script> 
-
+</script>
+ 
+<table width = "100%">
+<tr>
           <div class="card effect__click">
             <div class="card__front">
               <span id="front" name="card_fnt" class="card__text"></span>
             </div>
             <div class="card__back">
-              <span id="back" name="card_bck" class="card__text"></span>
+<div class="card__text">
+
+              <span id="eback" name="card_bck"></span>
+</br>
+		<span id="rback" name="card_bck"></span>
+
+</div>
             </div>
         </div><!-- /card -->
-
-<img onclick="prev()" height="25" width="25"src="images/prev.jpg"/> 
-<img onclick="next()" height="25" width="25" src="images/next.jpg"/> 
+</tr><tr><td style="padding-left:23%">
+<img onclick="prev()" height="40" width="40"src="images/prev.jpg"/> 
+<img onclick="next()" height="40" width="40" src="images/next.jpg"/> 
+</td></tr></table>
 
 <script type="text/javascript">
 (function() {

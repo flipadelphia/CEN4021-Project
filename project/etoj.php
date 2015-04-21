@@ -122,8 +122,8 @@
 
 <td align="center">Kanji Word</td>
 <td align="center">Reading</td>
-<td align="center">Meaning</td>
-<td align="center">Meaning</td>
+<td align="center">Meanings</td>
+<td align="center">Other Meanings</td>
 </tr>
 
 <?php
