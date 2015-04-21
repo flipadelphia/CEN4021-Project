@@ -186,8 +186,8 @@ $(document).ready(function(){
    </ul>
    <ul class="nav nav-sidebar">
     <li> <a> </a> </li>
-    <li> <a> Kanji Tools </a> </li>
-    <li> <a> Flipadelphia </a> </li>
+    <li> <a href="index.html"> Kanji Tools </a> </li>
+    <li> <a href="flipadelphia.html"> Flipadelphia </a> </li>
    </ul>
   </div>
   <div class="col-sm-9 ">
